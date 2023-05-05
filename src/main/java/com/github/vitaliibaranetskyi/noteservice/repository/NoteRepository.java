@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface NoteRepository extends MongoRepository<Note, String> {
-    List<Note> findByOrderByCreatedAtDesc(); //get a list of notes sorted from new to old
+    List<Note> findAllByOrderByCreatedAtDesc(); //get a list of notes sorted from new to old
 }
