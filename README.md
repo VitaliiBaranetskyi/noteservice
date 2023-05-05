@@ -11,12 +11,12 @@ The main idea is to create a simple application where you can create your own no
 - Spring Boot Maven Plugin
 - Lombok
 - MapStruct
-## Description:
-# User
+# Description:
+## User
 - CRUD for user (get list, create, edit, delete)
-# Content
+## Content
 - Content is a note, consisting of one line and the number of likes. Likes can be added and removed.
-# Features
+## Features
 - Get a list of all notes, sorting from new to old
 - Both anonymous and registered users can create a post
 - Notes can be liked and unliked
