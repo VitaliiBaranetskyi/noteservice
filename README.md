@@ -19,8 +19,10 @@ The main idea is to create a simple application where you can create your own no
 ## Features
 - Get a list of all notes, sorting from new to old
 - Both anonymous and registered users can create a post
-- Notes can be liked and unliked
-- Only registered users can like a post
+- Notes can be liked or unfollowed
+- Only registered users can like a note
+- Only users with the ADMIN role can change the role of a user
+- Only users with the ADMIN role can change the number of likes and creation date of a note
 ## Developer
 Baranetskyi Vitalii
 
