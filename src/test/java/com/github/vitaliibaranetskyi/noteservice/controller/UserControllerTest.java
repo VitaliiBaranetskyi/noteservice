@@ -41,8 +41,6 @@ class UserControllerTest {
 
     private UserDTO userDTO;
     private List<UserDTO> userListDTO;
-    private User user;
-    private List<User> userList;
 
     @BeforeEach
     void setUp() {
@@ -59,15 +57,6 @@ class UserControllerTest {
 
         userListDTO = new ArrayList<>();
         userListDTO.add(userDTO);
-
-        user = new User(role);
-        user.setId("1");
-        user.setUsername("user1");
-        user.setPassword("password1");
-        user.setRole(role);
-
-        userList = new ArrayList<>();
-        userList.add(user);
     }
 
     @Test
@@ -79,8 +68,8 @@ class UserControllerTest {
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andDo(MockMvcResultHandlers.print())
-                .andExpect(MockMvcResultMatchers.jsonPath("$[0].id").value("1"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$[0].username").value("user1"));
+                .andExpect(MockMvcResultMatchers.jsonPath("$[0].id").value(userDTO.getId()))
+                .andExpect(MockMvcResultMatchers.jsonPath("$[0].username").value(userDTO.getUsername()));
 
     }
 
@@ -93,8 +82,8 @@ class UserControllerTest {
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andDo(MockMvcResultHandlers.print())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.id").value("1"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.username").value("user1"));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(userDTO.getId()))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.username").value(userDTO.getUsername()));
     }
 
 
@@ -107,8 +96,8 @@ class UserControllerTest {
                         .content("{\"username\": \"user1\", \"password\": \"password1\"}"))
                 .andExpect(status().isCreated())
                 .andDo(MockMvcResultHandlers.print())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.id").value("1"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.username").value("user1"));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(userDTO.getId()))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.username").value(userDTO.getUsername()));
     }
 
 
@@ -139,10 +128,10 @@ class UserControllerTest {
                         .content("{\"username\": \"updatedUser1\", \"password\": \"updatedPassword1\", \"role\": {\"name\": \"ADMIN\"}}"))
                 .andExpect(status().isOk())
                 .andDo(MockMvcResultHandlers.print())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.id").value("1"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.username").value("updatedUser1"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.password").value("updatedPassword1"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.role.name").value("ADMIN"));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(updatedUserDTO.getId()))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.username").value(updatedUserDTO.getUsername()))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.password").value(updatedUserDTO.getPassword()))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.role.name").value(updatedUserDTO.getRole().getName()));
     }
 
     @Test
