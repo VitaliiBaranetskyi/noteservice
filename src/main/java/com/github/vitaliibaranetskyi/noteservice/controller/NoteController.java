@@ -1,15 +1,14 @@
 package com.github.vitaliibaranetskyi.noteservice.controller;
 
+import com.github.vitaliibaranetskyi.noteservice.dto.NoteDTO;
 import com.github.vitaliibaranetskyi.noteservice.model.Role;
 import com.github.vitaliibaranetskyi.noteservice.model.User;
 import com.github.vitaliibaranetskyi.noteservice.service.NoteService;
 import com.github.vitaliibaranetskyi.noteservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import com.github.vitaliibaranetskyi.noteservice.dto.NoteDTO;
-import org.springframework.http.HttpStatus;
 
 import java.security.Principal;
 import java.util.List;
